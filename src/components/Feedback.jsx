@@ -10,7 +10,7 @@ function Feedback() {
   let [error, setError] = useState({})
 
   useEffect(() => {
-    let oldFeedData = JSON.parse(sessionStorage.getItem('feedback-data')) || []
+    let oldFeedData = JSON.parse(localStorage.getItem('feedback-data')) || []
     setFeedData(oldFeedData)
   }, [setFeedData])
 
@@ -51,7 +51,7 @@ function Feedback() {
     }
 
     setFeedData(newFeedData)
-    sessionStorage.setItem('feedback-data', JSON.stringify(newFeedData))
+    localStorage.setItem('feedback-data', JSON.stringify(newFeedData))
     setIndex(-1)
     setStar(0)
     setFeedback({})
@@ -61,7 +61,7 @@ function Feedback() {
     feedData.splice(pos, 1)
     let newFeedData = [...feedData]
     setFeedData(newFeedData)
-    sessionStorage.setItem('feedback-data', JSON.stringify(newFeedData))
+    localStorage.setItem('feedback-data', JSON.stringify(newFeedData))
   }
 
   let handleEdit = (pos) => {
